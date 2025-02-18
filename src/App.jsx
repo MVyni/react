@@ -1,34 +1,24 @@
-import React from "react"
+import React, { Component } from "react";
 
-const Equipe = (props) => {
-  return(
-    <div>
-      <Sobre nome={props.nome} cargo={props.cargo}idade={props.idade}/>
-
-      <Social lk={props.lk}/>
-    </div>
-  )
+class Equipe extends Component {
+  render(){
+    return(
+      <Social nome={this.props.nome} cargo={this.props.cargo} idade={this.props.idade}/>
+    )
+  }
 }
 
-const Sobre = (props) => {
-  return(
-    <div>
-      <h2>Olá sou o {props.nome}</h2>
-      <h3>Tenho {props.idade} anos</h3>
-      <h4>Eu sou {props.cargo}</h4>
-      <hr/>
-    </div>
-  )
-}
-
-const Social = (props) => {
-  return(
-    <div>
-      <a href="">Facebook</a>
-      <a href={props.lk}>LinkdIn</a>
-      <a href="">Instagram</a>
-    </div>
-  )
+class Social extends Component{
+  render(){
+    return(
+      <div>
+        <h2>Nome: {this.props.nome}</h2>
+        <h3>Cargo: {this.props.cargo}</h3>
+        <h3>Idade: {this.props.idade} anos</h3>
+        <hr />
+      </div>
+    )
+  }
 }
 
 export default function App(){
