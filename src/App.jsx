@@ -1,32 +1,48 @@
 import React, { Component } from "react";
 
-class Equipe extends Component {
-  render(){
-    return(
-      <Social nome={this.props.nome} cargo={this.props.cargo} idade={this.props.idade}/>
-    )
-  }
-}
+class App extends Component {
 
-class Social extends Component{
+  constructor(props){
+    super(props); //para usar todas as props
+
+    this.state = {
+      nome: "Vyni",
+      contador: 0
+    }
+
+    
+    //para acessar a função
+    this.diminuir = this.diminuir.bind(this)
+    this.aumentar = this.aumentar.bind(this) 
+  }
+  
+  aumentar(){
+    let state = this.state;
+    state.contador += 1;
+    state.nome = "Marcus"  
+    this.setState(state)
+  }
+
+  diminuir(){
+    let state = this.state;
+    if(state.contador >=1){
+    state.contador -= 1;
+    }
+    this.setState(state)
+  }
+
   render(){
     return(
       <div>
-        <h2>Nome: {this.props.nome}</h2>
-        <h3>Cargo: {this.props.cargo}</h3>
-        <h3>Idade: {this.props.idade} anos</h3>
-        <hr />
+        <h1>Contador</h1>
+        <p>{this.state.nome}</p>
+
+        <button onClick={this.aumentar}>+</button>
+        {this.state.contador}
+        <button onClick={this.diminuir}>-</button>
       </div>
     )
   }
 }
 
-export default function App(){
-  return(
-    <div>
-      <h1>Conheça nossa equipe:</h1>
-      <Equipe nome ="Vyni" cargo="Programador" idade="25" lk="https://google.com"/>
-      <Equipe nome ="Carol" cargo="Designer" idade="23"/>
-    </div>
-  )
-}
+export default App;
