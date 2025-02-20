@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Membro from "./components/Membro";
 
 class App extends Component {
 
@@ -40,7 +41,9 @@ class App extends Component {
         <button onClick={this.aumentar}>+</button>
         {this.state.contador}
         <button onClick={this.diminuir}>-</button>
+        <Membro nome="" />
       </div>
+
     )
   }
 }
