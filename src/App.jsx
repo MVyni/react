@@ -1,13 +1,14 @@
 import React, { Component } from "react";
-import Membro from "./components/Membro";
-import Condicional from "./components/Condicional";
+import Calculo from "./Calculo";
+import Botao from "./Botao";
 
 class App extends Component {
 
   render(){
     return(
       <div>
-        <Condicional/>
+        <Calculo/>
+        <Botao msg="Botão com props clicado">Botão Props</Botao>
       </div>
 
     )

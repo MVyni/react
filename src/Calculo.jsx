@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
+import useAtualize from "./hooks/useAtualize";
+
 
 const Calculo = () => {
 
 const  [num1, setNum1] = useState(0);
 const  [num2, setNum2] = useState(0);
 const  [total, setTotal] = useState();
+
+useAtualize(total);
+
 
 const handleSoma = () => {
     let soma = parseInt(num1) + parseInt(num2);
