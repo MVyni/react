@@ -1,15 +1,18 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import useAtualize from "./hooks/useAtualize";
+import useHistoric from "./hooks/useHistorico";
 
 
 const Calculo = () => {
 
-const  [num1, setNum1] = useState(0);
-const  [num2, setNum2] = useState(0);
-const  [total, setTotal] = useState();
+const [num1, setNum1] = useState(0);
+const [num2, setNum2] = useState(0);
+const [total, setTotal] = useState();
+
 
 useAtualize(total);
+
 
 
 const handleSoma = () => {
@@ -53,6 +56,7 @@ const handleDividi = () => {
         </div>
 
             <h3>Total: {total}</h3>
+            <h4>Histórico de resultados: {historico}</h4>
         </>
     )
 }
