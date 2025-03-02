@@ -8,7 +8,7 @@ class App extends Component {
     return(
       <div>
         <Calculo/>
-        <Botao msg="Botão com props clicado">Botão Props</Botao>
+        <Botao msg="botão clicado">Botão props</Botao>
       </div>
 
     )

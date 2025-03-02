@@ -4,9 +4,7 @@ const Botao = (props) => {
     
     return(
     <>    
-    <button onClick={() => alert(props.msg)}>
-        {props.children}
-        </button>
+    <button onClick={() => (props.msg)}> {props.children}</button>
     </>
     )
 }

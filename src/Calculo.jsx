@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
-import useAtualize from "./hooks/useAtualize";
+import React, { useEffect, useState } from "react";
+import Botao from "./Botao";
 
 
 const Calculo = () => {
@@ -13,30 +12,9 @@ const [historico, setHistorico] = useState([]);
 
 useEffect(updateHistoric, [total])
 function updateHistoric() {
-    setHistorico(total)
+    
+    setHistorico([...historico, total]);
 }
-
-
-const handleSoma = () => {
-    let soma = parseInt(num1) + parseInt(num2);
-    setTotal(soma);
-}
-
-const handleDiminui = () => {
-    let diminuir = parseInt(num1) - parseInt(num2)
-    setTotal(diminuir);
-}
-
-const handleMultiplica = () => {
-    let multiplicar = parseInt(num1) * parseInt(num2)
-    setTotal(multiplicar)
-}
-
-const handleDividi = () => {
-    let dividir = parseInt(num1) / parseInt(num2)
-    setTotal(dividir)
-}
-
 
 
     return(
@@ -44,17 +22,19 @@ const handleDividi = () => {
             <h2>Faça seu cálculo</h2>
             <input type="text" 
             placeholder="Digite um número"
-            onChange={(e) => setNum1(e.target.value)}/>
+            onChange={(e) => setNum1(Number(e.target.value))}
+            />
+
             <input type="text" 
             placeholder="Digite um número"
-            onChange={(e) => setNum2(e.target.value)}/>
+            onChange={(e) => setNum2(Number(e.target.value))}
+            />
 
         <div>
-    
-                <button onClick={handleSoma}>+</button>
-                <button onClick={handleDiminui}>-</button>
-                <button onClick={handleMultiplica}>*</button>
-                <button onClick={handleDividi}>/</button>
+                <button onClick={() => setTotal(num1 + num2)}>+</button>
+                <button onClick={() => setTotal(num1 - num2)}>-</button>
+                <button onClick={() => setTotal(num1 / num2)}>/</button>
+                <button onClick={() => setTotal(num1 * num2)}>*</button>
         </div>
 
             <h3>Total: {total}</h3>
