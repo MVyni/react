@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Botao from "./Botao";
+import Historico from "./Historico";
 
 
 const Calculo = () => {
@@ -12,10 +12,8 @@ const [historico, setHistorico] = useState([]);
 
 useEffect(updateHistoric, [total])
 function updateHistoric() {
-    
-    setHistorico([...historico, total]);
-}
-
+        setHistorico([...historico, total]);  
+    }
 
     return(
         <>
@@ -38,7 +36,7 @@ function updateHistoric() {
         </div>
 
             <h3>Total: {total}</h3>
-            <h4>Histórico de resultados: {historico}</h4>
+            <Historico historico={historico}/>
         </>
     )
 }

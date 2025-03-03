@@ -1,20 +1,17 @@
-import { useEffect, useState } from "react";
+import ItemHistoric from "./ItemHistoric";
 
-const Historico = () => {
-    
-    const [historico, setHistorico] = useState([]);
-    function useUpHistoric (state){
-    useEffect(updateHistoric, [state])
 
-    function updateHistoric(){
-        let update = historico.push(state)
-        setHistorico(update);
-    }
-}
-
+const Historico = (props) => {
     return(
-        <>
-        <h4>Seu resultado de histórico: {historico}</h4>
-        </>
+    <>
+    <h4>Histórico de resultados:</h4>
+    <ul>
+        {props.historico.map((item, index) => (
+            <ItemHistoric key={index} historico={item}/>
+        ))}
+    </ul>
+    </>
     )
-}
+}  
+
+export default Historico;
